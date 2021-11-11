@@ -3,6 +3,8 @@ import { useContext, useState } from "react";
 import { Context } from "../../context/Context";
 import { axiosInstance } from "../../config";
 
+/*{line = 70 => here we need to ad something like if nothing typed dont change data. }*/
+
 export default function Settings() {
   const [file, setFile] = useState(null);
   const [username, setUsername] = useState("");
@@ -64,7 +66,9 @@ export default function Settings() {
               onChange={(e) => setFile(e.target.files[0])}
             />
           </div>
+
           <label>Username</label>
+
           <input
             type="text"
             placeholder={user.username}
