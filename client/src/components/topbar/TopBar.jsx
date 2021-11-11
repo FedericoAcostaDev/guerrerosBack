@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import "./topbar.css";
 
+//Line= 46 add an Icon when there's no photo
+
 export default function TopBar() {
   const { user, dispatch } = useContext(Context);
   const PF = "https://bloghiv.herokuapp.com/images/";
@@ -28,11 +30,6 @@ export default function TopBar() {
           <li className="topListItem">
             <Link className="link" to="/">
               ABOUT
-            </Link>
-          </li>
-          <li className="topListItem">
-            <Link className="link" to="/">
-              CONTACT
             </Link>
           </li>
           <li className="topListItem">
