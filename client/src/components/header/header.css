@@ -22,9 +22,9 @@
   font-size: 100px;
 }
 
-.headerImg{
-    width: 100%;
-    height: 450px;
-    margin-top: 80px;
-    object-fit: cover;
+.headerImg {
+  min-width: 100vw;
+  max-height: 450px;
+  margin-top: 80px;
+  object-fit: cover;
 }
