@@ -29,8 +29,8 @@
 }
 
 .topImg {
-  width: 40px;
-  height: 40px;
+  width: 100vh;
+  max-height: 40px;
   border-radius: 50%;
   object-fit: cover;
   cursor: pointer;
