@@ -36,7 +36,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 app.post("/api/upload", upload.single("file"), (req, res) => {
-  fstat.renameSync(
+  fs.renameSync(
     req.file.path,
     req.file.path + "." + req.file.mimetype.split("/")[1]
   );
