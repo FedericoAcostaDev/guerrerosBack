@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const fs = require("fs");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const authRoute = require("./routes/auth");
@@ -8,6 +9,7 @@ const postRoute = require("./routes/posts");
 const categoryRoute = require("./routes/categories");
 const multer = require("multer");
 const path = require("path");
+const { fstat } = require("fs");
 
 dotenv.config();
 app.use(express.json());
@@ -34,6 +36,10 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 app.post("/api/upload", upload.single("file"), (req, res) => {
+  fstat.renameSync(
+    req.file.path,
+    req.file.path + "." + req.file.mimetype.split("/")[1]
+  );
   res.status(200).json("File has been uploaded");
 });
 
