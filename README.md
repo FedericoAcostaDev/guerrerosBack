@@ -13,7 +13,7 @@ In the project directory, you can run:
 
 ### `yarn install`
 
-### `yarn build`
+### `yarn start`
 
 ## Deployment
 
@@ -25,23 +25,19 @@ inside package.json i added
 
 ## fails with stability
 
--can't test on localhost!!
-//fixed by puttin out the client folder on developer Branch.
+-multer deletes uploaded files afte a moment
 
--deployment lost connection to database:
+-inside settings page data overwrites values (cleaning user data)
 
-### 2021-11-11T15:00:50.130843+00:00 heroku[router]: at=info method=GET path="/api/posts" host=guerrerosdelavihda.herokuapp.com request_id=7c280309-facb-48e1-9933-f24b34bd553f fwd="200.126.224.126" dyno=web.1 connect=0ms service=1ms status=500 bytes=226 protocol=https
+if conection to database is lost:
+
+2021-11-11T15:00:50.130843+00:00 heroku[router]: at=info method=GET path="/api/posts" host=guerrerosdelavihda.herokuapp.com request_id=7c280309-facb-48e1-9933-f24b34bd553f fwd="200.126.224.126" dyno=web.1 connect=0ms service=1ms status=500 bytes=226 protocol=https
 
 posible solution taked from the tutorial:
 'i also face that problem after that i put my code in try catch block and it worked'
-
--multer deletes uploaded files afte a moment
-//maybe related to the above issue
--inside settings page data overwrites values (cleaning user data
-
-)
 
 ## features to add
 
 -fix resposivness
 -Default profile pic
+-add update to the file of the post
