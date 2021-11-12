@@ -9,7 +9,6 @@ const postRoute = require("./routes/posts");
 const categoryRoute = require("./routes/categories");
 const multer = require("multer");
 const path = require("path");
-const { fstat } = require("fs");
 
 dotenv.config();
 app.use(express.json());
@@ -34,7 +33,7 @@ const storage = multer.diskStorage({
   },
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({ dest: "/images" });
 app.post("/api/upload", upload.single("file"), (req, res) => {
   fs.renameSync(
     req.file.path,
