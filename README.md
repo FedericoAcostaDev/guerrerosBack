@@ -35,7 +35,7 @@ inside package.json i added
 posible solution taked from the tutorial:
 'i also face that problem after that i put my code in try catch block and it worked'
 
--multer restarts
+-multer deletes uploaded files afte a moment
 //maybe related to the above issue
 -inside settings page data overwrites values (cleaning user data
 
