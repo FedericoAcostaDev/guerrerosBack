@@ -17,7 +17,7 @@ In the project directory, you can run:
 
 ## Deployment
 
-Deployed on Heroku
+https://bloghiv.herokuapp.com/
 
 inside package.json i added
 
