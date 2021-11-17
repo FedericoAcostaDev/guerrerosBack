@@ -19,7 +19,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "node index.js",
-    "heroku-postbuild": "npm install && npm run build"
+    "heroku-postbuild": "yarn install && yarn run build"
   },
   "author": "",
   "license": "ISC",
