@@ -21,7 +21,7 @@ https://bloghiv.herokuapp.com/
 
 inside package.json i added
 
-### "heroku-postbuild": "cd client && npm install && npm run build"
+### "heroku-postbuild": "yarn install && yarn run build"
 
 ## fails with stability
 
