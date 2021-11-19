@@ -26,15 +26,10 @@ inside package.json i added
 ## fails with stability
 
 -multer deletes uploaded files afte a moment
+//change upload file for paste URL
 
 -inside settings page data overwrites values (cleaning user data)
 
-if conection to database is lost:
-
-2021-11-11T15:00:50.130843+00:00 heroku[router]: at=info method=GET path="/api/posts" host=guerrerosdelavihda.herokuapp.com request_id=7c280309-facb-48e1-9933-f24b34bd553f fwd="200.126.224.126" dyno=web.1 connect=0ms service=1ms status=500 bytes=226 protocol=https
-
-posible solution taked from the tutorial:
-'i also face that problem after that i put my code in try catch block and it worked'
 
 ## features to add
 
