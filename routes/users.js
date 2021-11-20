@@ -5,8 +5,8 @@ const bcrypt = require("bcrypt");
 const cloudinary = require("cloudinary");
 const upload = require("../utils/multer");
 
-//IMAGE UPLOAD
-router.post("/:id", upload.single("image"), async (req, res) => {
+//UPDATE
+router.put("/:id", upload.single("image"), async (req, res) => {
   if (req.body.userId === req.params.id) {
     if (req.body.password) {
       const salt = await bcrypt.genSalt(10);
@@ -14,26 +14,12 @@ router.post("/:id", upload.single("image"), async (req, res) => {
     }
     try {
       const result = await cloudinary.uploader.upload(req.file.path);
-      res.json(result);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  } else {
-    res.status(401).json("You can update only your account!");
-  }
-});
-//UPDATE
-router.put("/:id", async (req, res) => {
-  if (req.body.userId === req.params.id) {
-    if (req.body.password) {
-      const salt = await bcrypt.genSalt(10);
-      req.body.password = await bcrypt.hash(req.body.password, salt);
-    }
-    try {
       const updatedUser = await User.findByIdAndUpdate(
         req.params.id,
+
         {
           $set: req.body,
+          cloudinary_id: result.public_id,
         },
         { new: true }
       );
@@ -70,7 +56,7 @@ router.delete("/:id", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
-    const { password, ...others } = user._doc;
+    const { password, cloudinary_id, ...others } = user._doc;
     res.status(200).json(others);
   } catch (err) {
     res.status(500).json(err);
