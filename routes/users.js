@@ -2,24 +2,19 @@ const router = require("express").Router();
 const User = require("../models/User");
 const Post = require("../models/Post");
 const bcrypt = require("bcrypt");
-const cloudinary = require("../utils/cloudinary");
-const upload = require("../utils/multer");
 
 //UPDATE
-router.put("/:id", upload.single("image"), async (req, res) => {
-  //image needs to be the same in front end when we put type=file name='image'
+router.put("/:id", async (req, res) => {
   if (req.body.userId === req.params.id) {
     if (req.body.password) {
       const salt = await bcrypt.genSalt(10);
       req.body.password = await bcrypt.hash(req.body.password, salt);
     }
     try {
-      const result = await cloudinary.uploader.upload(req.file.path);
       const updatedUser = await User.findByIdAndUpdate(
         req.params.id,
         {
           $set: req.body,
-          cloudinary_id: result.public_id,
         },
         { new: true }
       );
