@@ -12,8 +12,11 @@ const path = require("path");
 var cors = require("cors");
 
 dotenv.config();
+//middleware
 app.use(express.json());
-app.use("/images", express.static(path.join(__dirname, "/images")));
+
+//check this line
+app.use("/users/upload", express.static(path.join(__dirname, "/images")));
 
 const corsOptions = {
   origin: "*",
