@@ -15,9 +15,6 @@ dotenv.config();
 //middleware
 app.use(express.json());
 
-//check this line
-app.use("/users/upload", express.static(path.join(__dirname, "/images")));
-
 const corsOptions = {
   origin: "*",
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
