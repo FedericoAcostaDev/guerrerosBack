@@ -61,7 +61,7 @@ router.get("/:id", async (req, res) => {
 });
 
 //9
-router.post("/:id/upload", upload.single("image"), async (req, res) => {
+router.post("/upload", upload.single("image"), async (req, res) => {
   try {
     // Upload image to cloudinary
     const result = await cloudinary.uploader.upload(req.file.path);
