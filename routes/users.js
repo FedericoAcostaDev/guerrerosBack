@@ -2,8 +2,6 @@ const router = require("express").Router();
 const User = require("../models/User");
 const Post = require("../models/Post");
 const bcrypt = require("bcrypt");
-const cloudinary = require("../utils/cloudinary");
-const upload = require("../utils/multer");
 
 //UPDATE
 router.put("/:id", async (req, res) => {
@@ -60,27 +58,4 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-//POST
-router.post("/", upload.single("image"), async (req, res) => {
-  try {
-    // Upload image to cloudinary
-    const result = await cloudinary.uploader.upload(req.file.path);
-    res.json(result);
-  } catch (err) {
-    console.log(err);
-  }
-});
-/* Create new user
-    let user = new User({
-      username: req.body.name,
-      profilePic: result.secure_url,
-      cloudinary_id: result.public_id,
-    });
-    // Save user
-    await user.save();
-    res.json(user);
-  } catch (err) {
-    console.log(err);
-  }
-}); */
 module.exports = router;
