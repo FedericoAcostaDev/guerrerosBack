@@ -7,6 +7,8 @@ Multer is used for image storage
 Axios to fetch data from mongodb
 Mongodb for database
 
+Teamwork project management by Trello.com
+
 ## Available Scripts
 
 In the project directory, you can run:
