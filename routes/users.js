@@ -60,13 +60,17 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-//9
-router.post("/upload", upload.single("image"), async (req, res) => {
+//POST
+router.post("/", upload.single("image"), async (req, res) => {
   try {
     // Upload image to cloudinary
     const result = await cloudinary.uploader.upload(req.file.path);
-
-    // Create new user
+    res.json(result);
+  } catch (err) {
+    console.log(err);
+  }
+});
+/* Create new user
     let user = new User({
       username: req.body.name,
       profilePic: result.secure_url,
@@ -78,5 +82,5 @@ router.post("/upload", upload.single("image"), async (req, res) => {
   } catch (err) {
     console.log(err);
   }
-});
+}); */
 module.exports = router;
