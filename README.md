@@ -21,7 +21,7 @@ In the project directory, you can run:
 
 https://bloghiv.herokuapp.com/
 
-inside package.json 
+Inside package.json 
 
 
 ### "scripts": {
@@ -30,17 +30,17 @@ inside package.json
   
   switch to `nodemon index.js` for develop 
 
-## fails with stability
+## Fails with stability
 
--implement Cloudinary to store files 
+-Implementing Cloudinary to store files 
 //change upload file for paste URL
 
--inside users settings page, data overwrites values (cleaning user data)
+-Inside users settings page, data overwrites values (cleaning user data)
 
 
-## features to add
+## Features to add
 
 -Fix resposivness
 -Default profile pic
 -Default post photo
--Translate to spanish
+-Translate into spanish
