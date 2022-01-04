@@ -24,9 +24,9 @@ https://bloghiv.herokuapp.com/
 inside package.json 
 
 
-### `"scripts": {
+### "scripts": {
     "start": "node index.js"
-  },`
+  },
   
   switch to `nodemon index.js` for develop 
 
