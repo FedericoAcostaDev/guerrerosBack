@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Created with Create React App
 
-this is an API project using node.js, Mern with a React.js front-end.
+This is a MERN application.
 
 technologies used:
 Multer is used for image storage
@@ -21,20 +21,26 @@ In the project directory, you can run:
 
 https://bloghiv.herokuapp.com/
 
-inside package.json i added
+inside package.json 
 
-### "heroku-postbuild": "yarn install && yarn run build"
+
+### `"scripts": {
+    "start": "node index.js"
+  },`
+  
+  switch to `nodemon index.js` for develop 
 
 ## fails with stability
 
--multer deletes uploaded files afte a moment
+-implement Cloudinary to store files 
 //change upload file for paste URL
 
--inside settings page data overwrites values (cleaning user data)
+-inside users settings page, data overwrites values (cleaning user data)
 
 
 ## features to add
 
--fix resposivness
+-Fix resposivness
 -Default profile pic
--add update to the file of the post
+-Default post photo
+-Translate to spanish
