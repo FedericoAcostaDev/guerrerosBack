@@ -13,9 +13,9 @@ Teamwork project management by Trello.com
 
 In the project directory, you can run:
 
-### `npm install`
+### `yarn install`
 
-### `npm start`
+### `yarn start`
 
 ## Deployment
 
