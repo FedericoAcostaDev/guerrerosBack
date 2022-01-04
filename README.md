@@ -2,7 +2,7 @@
 
 This is a MERN application.
 
-technologies used:
+Technologies used:
 Multer is used for image storage
 Axios to fetch data from mongodb
 Mongodb for database
