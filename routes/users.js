@@ -60,7 +60,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-//POST
+//POST IMAGES
 router.post("/", upload.single("image"), async (req, res) => {
   try {
     // Upload image to cloudinary
