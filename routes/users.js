@@ -2,6 +2,8 @@ const router = require("express").Router();
 const User = require("../models/User");
 const Post = require("../models/Post");
 const bcrypt = require("bcrypt");
+const cloudinary = require("../utils/cloudinary");
+const upload = require("../utils/multer");
 
 //UPDATE
 router.put("/:id", async (req, res) => {
