@@ -9,7 +9,7 @@ const postRoute = require("./routes/posts");
 const categoryRoute = require("./routes/categories");
 
 const path = require("path");
-var cors = require("cors");
+const cors = require("cors");
 
 dotenv.config();
 //middleware
