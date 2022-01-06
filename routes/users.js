@@ -13,14 +13,19 @@ router.put("/:id", upload.single("image"), async (req, res) => {
       req.body.password = await bcrypt.hash(req.body.password, salt);
     }
     try {
+      //delete image from cloudinary
+      await cloudinary.uploader.destroy(user.cloudinary_id);
+      //upload image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path);
-      const updatedUser = await User.findByIdAndUpdate(
+      const updatedUser = await User.findById(
         req.params.id,
         {
           $set: req.body,
+          cloudinary_id: result.public_id,
         },
         { new: true }
       );
+
       res.status(200).json(updatedUser);
     } catch (err) {
       res.status(500).json(err);
