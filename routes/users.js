@@ -58,4 +58,30 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
+=======
+//POST IMAGES
+router.post("/", upload.single("image"), async (req, res) => {
+  try {
+    // Upload image to cloudinary
+    const result = await cloudinary.uploader.upload(req.file.path);
+    res.json(result);
+  } catch (err) {
+    console.log(err);
+  }
+});
+/* Create new user
+    let user = new User({
+      username: req.body.name,
+      profilePic: result.secure_url,
+      cloudinary_id: result.public_id,
+    });
+    // Save user
+    await user.save();
+    res.json(user);
+  } catch (err) {
+    console.log(err);
+  }
+}); */
+>>>>>>> 832ac513e4e99554c8e7a45599ab82da0d043bfb
 module.exports = router;
