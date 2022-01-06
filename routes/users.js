@@ -37,6 +37,8 @@ router.delete("/:id", async (req, res) => {
       try {
         await Post.deleteMany({ username: user.username });
         await User.findByIdAndDelete(req.params.id);
+        //delete image from cloudinary
+        await cloudinary.uploader.destroy(user.cloudinary_id);
         res.status(200).json("User has been deleted...");
       } catch (err) {
         res.status(500).json(err);
