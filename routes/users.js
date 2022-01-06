@@ -6,13 +6,14 @@ const cloudinary = require("../utils/cloudinary");
 const upload = require("../utils/multer");
 
 //UPDATE
-router.put("/:id", async (req, res) => {
+router.put("/:id", upload.single("image"), async (req, res) => {
   if (req.body.userId === req.params.id) {
     if (req.body.password) {
       const salt = await bcrypt.genSalt(10);
       req.body.password = await bcrypt.hash(req.body.password, salt);
     }
     try {
+      const result = await cloudinary.uploader.upload(req.file.path);
       const updatedUser = await User.findByIdAndUpdate(
         req.params.id,
         {
@@ -63,21 +64,14 @@ router.get("/:id", async (req, res) => {
 });
 
 //POST IMAGES
-router.post("/", upload.single("image"), async (req, res) => {
+/*router.put("/", upload.single("image"), async (req, res) => {
   try {
     // Upload image to cloudinary
     const result = await cloudinary.uploader.upload(req.file.path);
-    res.json(result);
-  } catch (err) {
-    console.log(err);
-  }
-});
-/* Create new user
-    let user = new User({
-      username: req.body.name,
-      profilePic: result.secure_url,
+
+    User = {
       cloudinary_id: result.public_id,
-    });
+    };
     // Save user
     await user.save();
     res.json(user);
