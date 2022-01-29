@@ -69,19 +69,26 @@ router.get("/:id", async (req, res) => {
 });
 
 //POST IMAGES
-/*router.put("/", upload.single("image"), async (req, res) => {
+router.post("/upload", upload.single("avatar"), async (req, res) => {
+  console.log('/users/upload triggered')
   try {
     // Upload image to cloudinary
     const result = await cloudinary.uploader.upload(req.file.path);
-
-    User = {
-      cloudinary_id: result.public_id,
-    };
     // Save user
-    await user.save();
-    res.json(user);
+    User.findById(req.body.id, (err, user) => {
+      if (err) console.log(err)
+      user.profilePic = result.secure_url
+      user.save((err) => {
+        if (err) console.log(err)
+        res.json(user);
+        console.log('user saved')
+      })
+    });
+    
   } catch (err) {
     console.log(err);
+    res.status(500).json(err);
   }
-}); */
+});
+
 module.exports = router;
