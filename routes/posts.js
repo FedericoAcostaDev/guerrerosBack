@@ -1,6 +1,21 @@
 const router = require("express").Router();
 const User = require("../models/User");
 const Post = require("../models/Post");
+const cloudinary = require("../utils/cloudinary");
+const upload = require("../utils/multer");
+
+//UPLOAD FILE
+router.post("/upload", upload.single("file"), async (req, res) => {
+  try {
+    // Upload image to cloudinary
+    const result = await cloudinary.uploader.upload(req.file.path);
+    //save changes
+    post.photo = result.secure_url;
+    res.status(200).json(savedPost);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 //CREATE POST
 router.post("/", async (req, res) => {

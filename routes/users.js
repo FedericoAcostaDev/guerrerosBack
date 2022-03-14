@@ -70,21 +70,20 @@ router.get("/:id", async (req, res) => {
 
 //POST IMAGES
 router.post("/upload", upload.single("avatar"), async (req, res) => {
-  console.log('/users/upload triggered')
+  console.log("/users/upload triggered");
   try {
     // Upload image to cloudinary
     const result = await cloudinary.uploader.upload(req.file.path);
     // Save user
     User.findById(req.body.id, (err, user) => {
-      if (err) console.log(err)
-      user.profilePic = result.secure_url
+      if (err) console.log(err);
+      user.profilePic = result.secure_url;
       user.save((err) => {
-        if (err) console.log(err)
+        if (err) console.log(err);
         res.json(user);
-        console.log('user saved')
-      })
+        console.log("user saved");
+      });
     });
-    
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
