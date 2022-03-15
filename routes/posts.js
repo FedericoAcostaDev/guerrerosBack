@@ -5,7 +5,7 @@ const cloudinary = require("../utils/cloudinary");
 const upload = require("../utils/multer");
 
 //UPLOAD FILE
-router.post("/upload", upload.single("file"), async (req, res) => {
+router.post("/upload", upload.single("avatar"), async (req, res) => {
   try {
     // Upload image to cloudinary
     const result = await cloudinary.uploader.upload(req.file.path);
