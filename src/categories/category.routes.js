@@ -1,5 +1,6 @@
-const router = require("express").Router();
-const Category = require("./category.entity");
+import express from 'express';
+import Category from './entities/category.entity.js'
+const router = express.Router()
 
 router.post("/", async (req, res) => {
   const newCat = new Category(req.body);
@@ -20,4 +21,4 @@ router.get("/", async (req, res) => {
     }
   });
 
-module.exports = router;
+export default router

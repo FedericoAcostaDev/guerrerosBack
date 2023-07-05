@@ -1,8 +1,10 @@
-const router = require("express").Router();
-const User = require("../users/user.entity");
-const Post = require("./post.entity");
-const cloudinary = require("../utils/cloudinary");
-const upload = require("../utils/multer");
+import { Router } from "express";
+import User from "../users/entities/user.entity.js";
+import Post from "./entities/post.entity.js";
+import cloudinary from "../utils/cloudinary.js";
+import upload from "../utils/multer.js";
+
+const router = Router();
 
 //UPLOAD FILE
 router.post("/upload", upload.single("avatar"), async (req, res) => {
@@ -105,4 +107,4 @@ router.get("/", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

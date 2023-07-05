@@ -1,9 +1,10 @@
-const express = require("express");
+import express from "express";
 const app = express();
-const dotenv = require("dotenv");
-const mongoose = require("mongoose");
-const cors = require("cors");
-const routes = require("./shared/routes");
+
+import dotenv from "dotenv";
+import mongoose from "mongoose";
+import cors from "cors";
+import routes from "./shared/routes.js";
 
 dotenv.config();
 //middleware
@@ -25,15 +26,6 @@ mongoose
   })
   .then(console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));
-
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
 
 app.use('/api', routes)
 

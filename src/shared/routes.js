@@ -1,14 +1,15 @@
-const express = require('express');
+import express from 'express';
 const app = express();
 
-const authRoute = require("../users/auth.routes");
-const userRoute = require("../users/user.routes");
-const postRoute = require("../posts/post.routes");
-const categoryRoute = require("../categories/category.routes");
+import authRoute from '../users/auth.routes.js';
+import userRoute from '../users/user.routes.js';
+import postRoute from '../posts/post.routes.js';
+import categoryRoute from '../categories/category.routes.js';
 
-app.use("/auth", authRoute);
-app.use("/users", userRoute);
-app.use("/posts", postRoute);
-app.use("/categories", categoryRoute);
+app
+  .use("/auth", authRoute)
+  .use("/users", userRoute)
+  .use("/posts", postRoute)
+  .use("/categories", categoryRoute);
 
-module.exports = app;     
+export default app  

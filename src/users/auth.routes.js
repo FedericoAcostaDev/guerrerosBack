@@ -1,6 +1,7 @@
-const router = require("express").Router();
-const User = require("./user.entity");
-const bcrypt = require("bcrypt");
+import express from 'express';
+import User from './entities/user.entity.js'
+import bcrypt from 'bcrypt';
+const router = express.Router()
 
 //REGISTER
 router.post("/register", async (req, res) => {
@@ -41,4 +42,4 @@ router.post("/login", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router

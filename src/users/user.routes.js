@@ -1,9 +1,11 @@
-const router = require("express").Router();
-const User = require("./user.entity");
-const Post = require("../posts/post.entity");
-const bcrypt = require("bcrypt");
-const cloudinary = require("../utils/cloudinary");
-const upload = require("../utils/multer");
+import express from "express";
+import User from "./entities/user.entity.js";
+import Post from "../posts/entities/post.entity.js";
+import bcrypt from "bcrypt";
+import cloudinary from "../utils/cloudinary.js";
+import upload from "../utils/multer.js";
+
+const router = express.Router();
 
 //UPDATE
 router.put("/:id", upload.single("image"), async (req, res) => {
@@ -17,7 +19,7 @@ router.put("/:id", upload.single("image"), async (req, res) => {
       await cloudinary.uploader.destroy(user.cloudinary_id);
       //upload image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path);
-      const updatedUser = await User.findById(
+      const updatedUser = await User.findByIdAndUpdate(
         req.params.id,
         {
           $set: req.body,
@@ -90,4 +92,4 @@ router.post("/upload", upload.single("avatar"), async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
