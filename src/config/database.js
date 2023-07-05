@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose'
 import config from './index.js'
 const { DATABASE_URL } = config
 
@@ -8,11 +8,11 @@ const connectToDatabase = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
-      useFindAndModify: true,
-    });
-    console.log('Connected to MongoDB');
+      useFindAndModify: true
+    })
+    console.log('Connected to MongoDB')
   } catch (error) {
-    console.log(error);
+    console.log(error)
   }
 }
 

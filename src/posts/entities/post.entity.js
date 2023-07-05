@@ -5,29 +5,29 @@ const PostSchema = new mongoose.Schema(
     title: {
       type: String,
       required: true,
-      unique: true,
+      unique: true
     },
     desc: {
       type: String,
-      required: true,
+      required: true
     },
     photo: {
       type: String,
-      required: false,
+      required: false
     },
     username: {
       type: String,
-      required: true,
+      required: true
     },
     categories: {
       type: Array,
-      required: false,
+      required: false
     },
     cloudinary_id: {
-      type: String,
-    },
+      type: String
+    }
   },
   { timestamps: true }
-);
+)
 
-export default mongoose.model("Post", PostSchema);
+export default mongoose.model('Post', PostSchema)
