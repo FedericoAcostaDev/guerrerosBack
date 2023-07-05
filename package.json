@@ -29,7 +29,7 @@
   "scripts": {
     "start": "node ./src/app.js",
     "start:dev": "nodemon ./src/app.js",
-    "lint-fix": "eslint --fix ."
+    "lint:fix": "eslint --fix ."
   },
   "author": "",
   "license": "ISC",

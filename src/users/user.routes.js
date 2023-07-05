@@ -2,8 +2,8 @@ import express from 'express'
 import User from './entities/user.entity.js'
 import Post from '../posts/entities/post.entity.js'
 import bcrypt from 'bcrypt'
-import cloudinary from '../utils/cloudinary.js'
-import upload from '../utils/multer.js'
+import cloudinary from '../shared/utils/cloudinary.js'
+import upload from '../shared/utils/multer.js'
 
 const router = express.Router()
 
