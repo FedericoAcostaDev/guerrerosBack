@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const User = require("../models/User");
-const Post = require("../models/Post");
+const User = require("../users/user.entity");
+const Post = require("./post.entity");
 const cloudinary = require("../utils/cloudinary");
 const upload = require("../utils/multer");
 

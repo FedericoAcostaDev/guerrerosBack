@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const User = require("../models/User");
+const User = require("./user.entity");
 const bcrypt = require("bcrypt");
 
 //REGISTER
@@ -25,9 +25,13 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({ username: req.body.username });
-    !user && res.status(400).json("Wrong credentials!");
 
+    if (!user) {
+      return res.status(400).json("Wrong credentials!");
+    }
+    console.log("sadas")
     const validated = await bcrypt.compare(req.body.password, user.password);
+
     !validated && res.status(400).json("Wrong credentials!");
 
     const { password, ...others } = user._doc;
