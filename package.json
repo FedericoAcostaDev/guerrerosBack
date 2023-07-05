@@ -13,14 +13,15 @@
   },
   "name": "api",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "engines": {
     "node": "^16.11.1",
     "npm": "^8.1.0"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node ./src/app.js",
+    "nodemon": "node ./src/app.js"
   },
   "author": "",
   "license": "ISC",
