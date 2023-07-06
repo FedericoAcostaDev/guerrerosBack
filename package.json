@@ -13,14 +13,23 @@
   },
   "name": "api",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
+  "type": "module",
   "engines": {
     "node": "^16.11.1",
     "npm": "^8.1.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^8.44.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^16.0.1",
+    "eslint-plugin-promise": "^6.1.1"
+  },
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node ./src/app.js",
+    "start:dev": "nodemon ./src/app.js",
+    "lint:fix": "eslint --fix ."
   },
   "author": "",
   "license": "ISC",
