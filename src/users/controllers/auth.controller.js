@@ -14,7 +14,6 @@ const registerUser = async (req, res, next) => {
 
 const loginUser = async (req, res, next) => {
   try {
-    console.log(req.body)
     const { username, password } = req.body
 
     const user = { username, password }
