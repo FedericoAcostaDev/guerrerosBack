@@ -1,40 +1,28 @@
-import User from '../entities/user.entity.js'
-import bcrypt from 'bcrypt'
+import authServices from '../services/auth.service.js'
 
-const registerUser = async (req, res) => {
+const registerUser = async (req, res, next) => {
   try {
-    const salt = await bcrypt.genSalt(10)
-    const hashedPass = await bcrypt.hash(req.body.password, salt)
-    const newUser = new User({
-      username: req.body.username,
-      email: req.body.email,
-      password: hashedPass,
-      cloudinary_id: req.body.public_id
-    })
+    const { username, email, password, public_id: cloudinaryID } = req.body
 
-    const user = await newUser.save()
+    const newUser = { username, email, password, cloudinaryID }
+    const user = await authServices.registerUser(newUser)
     res.status(200).json(user)
   } catch (err) {
-    res.status(500).json(err)
+    next(err)
   }
 }
 
-const loginUser = async (req, res) => {
+const loginUser = async (req, res, next) => {
   try {
-    const user = await User.findOne({ username: req.body.username })
+    console.log(req.body)
+    const { username, password } = req.body
 
-    if (!user) {
-      return res.status(400).json('Wrong credentials!')
-    }
-    console.log('sadas')
-    const validated = await bcrypt.compare(req.body.password, user.password)
+    const user = { username, password }
+    const response = await authServices.loginUser(user)
 
-    !validated && res.status(400).json('Wrong credentials!')
-
-    const { password, ...others } = user._doc
-    res.status(200).json(others)
+    res.status(200).json(response)
   } catch (err) {
-    res.status(500).json(err)
+    next(err)
   }
 }
 
