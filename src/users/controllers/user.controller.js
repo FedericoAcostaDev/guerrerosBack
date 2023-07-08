@@ -2,14 +2,16 @@ import User from '../entities/user.entity.js'
 import Post from '../../posts/entities/post.entity.js'
 import bcrypt from 'bcrypt'
 import cloudinary from '../../shared/utils/cloudinary.js'
+import userService from '../services/user.service.js'
 
-const getUser = async (req, res) => {
+const getUser = async (req, res, next) => {
   try {
-    const user = await User.findById(req.params.id)
-    const { password, ...others } = user._doc
-    res.status(200).json(others)
+    const { id: userId } = req.params
+
+    const user = await userService.getUser(userId)
+    res.status(200).json(user)
   } catch (err) {
-    res.status(500).json(err)
+    next(err)
   }
 }
 
