@@ -14,11 +14,11 @@ const { PORT } = config
 const app = express()
 const swaggerSpec = swaggerJSDoc(swaggerOptions)
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(morgan('dev'))
 app.use(cors(corsOptions))
-app.use('/', healthCheckRoutes)
+app.use('/healthcheck', healthCheckRoutes)
 app.use('/api', routes)
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec))
 

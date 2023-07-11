@@ -2,9 +2,23 @@ export const swaggerOptions = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'Guerreros Backend Api',
+      title: 'Guerreros Backend Api Documentation',
       version: '1.0.0',
-      description: 'Backend for Guerreros'
+      description: 'Backend for Guerreros Api Documentation',
+      xLogo: {
+        url: './src/asset/img/logo.png',
+        href: 'https://guerrerosback.netlify.app/api',
+        altText: 'Guerreros Backend Api'
+      },
+      contact: {
+        name: 'API Support',
+        url: 'https://www.example.com/support',
+        email: 'support@example.com'
+      },
+      license: {
+        name: 'Mit',
+        url: 'https://opensource.org/license/mit/'
+      }
     },
     servers: [
       {
@@ -17,5 +31,16 @@ export const swaggerOptions = {
       }
     ]
   },
-  apis: ['./src/**/doc/*.doc.js']
-}
+  apis: ['./src/**/doc/*.doc.js'],
+
+  xTagGroups: [
+    {
+      name: 'Guerreros',
+      tags: ['Users', 'Posts', 'Categories']
+    },
+    {
+      name: 'Schemes',
+      tags: ['Users', 'Posts', 'Categories']
+    }
+  ]
+};

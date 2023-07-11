@@ -21,7 +21,7 @@
  * @swagger
  *  /post:
  *    get:
- *      tags: [Post]
+ *      tags: [Posts]
  *      summary: Get all posts
  *      description:
  *        Get all posts

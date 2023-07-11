@@ -21,7 +21,7 @@
  * @swagger
  *  /user:
  *    get:
- *      tags: [User]
+ *      tags: [Users]
  *      summary: Get all users
  *      description:
  *        Get all users

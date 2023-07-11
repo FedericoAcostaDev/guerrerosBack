@@ -21,7 +21,7 @@
  * @swagger
  *  /categories:
  *    get:
- *      tags: [Category]
+ *      tags: [Categories]
  *      summary: Get all categories
  *      description:
  *        Get all categories
