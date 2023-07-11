@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 app.use(morgan('dev'))
 app.use(cors(corsOptions))
-app.use('/healthcheck', healthCheckRoutes)
+app.use('/', healthCheckRoutes)
 app.use('/api', routes)
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec))
 
