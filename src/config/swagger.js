@@ -8,7 +8,7 @@ export const swaggerOptions = {
     },
     servers: [
       {
-        url: 'https://localhost:5000/api',
+        url: 'http://localhost:5000/api',
         description: 'The server api environment development'
       },
       {
