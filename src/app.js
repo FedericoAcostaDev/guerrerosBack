@@ -5,7 +5,7 @@ import config from './config/index.js'
 import healthCheckRoutes from './config/healthCheck.js'
 import { corsOptions } from './config/cors.js'
 import connectToDatabase from './config/database.js'
-import errorHandler from './shared/helpers/errorHandler.js'
+import { handleErrorResponse } from './shared/helpers/responseHandler.js'
 
 const { PORT } = config
 const app = express()
@@ -15,7 +15,7 @@ app.use(cors(corsOptions))
 app.use('/healthcheck', healthCheckRoutes)
 app.use('/api', routes)
 
-app.use(errorHandler)
+app.use(handleErrorResponse)
 await connectToDatabase()
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}`))

@@ -10,13 +10,16 @@ export const HTTP_STATUSES = {
   SERVICE_UNAVAILABLE: 503
 }
 
-export const ERROR_MESSAGES = {
-  INTERNAL_SERVER_ERROR: 'Internal Server Error',
-  RESOURCE_NOT_FOUND: 'Resource not found',
-  UNAUTHORIZED: 'Unauthorized',
-  FORBIDDEN: 'Forbidden',
-  BAD_REQUEST: 'Bad Request',
-  MISSING_PARAMETERS: 'Missing parameters',
-  INVALID_INPUT: 'Invalid input',
-  SERVICE_UNAVAILABLE: 'Servuce unavailable'
+export const HTTP_MESSAGES = {
+  [HTTP_STATUSES.OK]: 'OK',
+  [HTTP_STATUSES.CREATED]: 'CREATED',
+  [HTTP_STATUSES.ACCEPTED]: 'ACCEPTED',
+  [HTTP_STATUSES.INTERNAL_SERVER_ERROR]: 'Internal Server Error',
+  [HTTP_STATUSES.RESOURCE_NOT_FOUND]: 'Resource not found',
+  [HTTP_STATUSES.UNAUTHORIZED]: 'Unauthorized',
+  [HTTP_STATUSES.FORBIDDEN]: 'Forbidden',
+  [HTTP_STATUSES.BAD_REQUEST]: 'Bad Request',
+  [HTTP_STATUSES.MISSING_PARAMETERS]: 'Missing parameters',
+  [HTTP_STATUSES.INVALID_INPUT]: 'Invalid input',
+  [HTTP_STATUSES.SERVICE_UNAVAILABLE]: 'Servuce unavailable'
 }
