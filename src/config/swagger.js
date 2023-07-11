@@ -8,10 +8,10 @@ export const swaggerOptions = {
     },
     servers: [
       {
-        url: 'http://localhost:5000/api',
+        url: 'https://localhost:5000/api',
         description: 'The server api environment development'
-      }
-    ]
+      },
+    ],
   },
   apis: ['./src/**/doc/*.doc.js']
 }
