@@ -17,13 +17,32 @@ export const swaggerOptions = {
       },
       license: {
         name: 'Mit',
+        identifier: 'MIT',
         url: 'https://opensource.org/license/mit/'
       }
     },
     servers: [
       {
-        url: 'http://localhost:5000/api',
-        description: 'The server api environment development'
+        url: 'http://localhost:{port}/{basePath}/{versionApi}',
+        description: 'The server api environment development',
+        variables: {
+          port: {
+            enum: ['8000', '7000'],
+            default: '8000'
+          },
+          basePath: {
+            enum: ['api', 'docs'],
+            default: 'api',
+            description:
+              'this value is assigned by the service provider'
+          },
+          versionApi: {
+            enum: ['v1', 'v2'],
+            default: 'v1',
+            description:
+              'this value is assigned by the version api provider'
+          }
+        }
       },
       {
         url: 'https://guerrerosback.netlify.app/api',
@@ -43,4 +62,4 @@ export const swaggerOptions = {
       tags: ['Users', 'Posts', 'Categories']
     }
   ]
-};
+}
