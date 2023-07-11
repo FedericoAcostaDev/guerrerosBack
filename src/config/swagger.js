@@ -11,7 +11,11 @@ export const swaggerOptions = {
         url: 'https://localhost:5000/api',
         description: 'The server api environment development'
       },
-    ],
+      {
+        url: 'https://guerrerosback.netlify.app/api',
+        description: 'The server api environment production'
+      }
+    ]
   },
   apis: ['./src/**/doc/*.doc.js']
 }
