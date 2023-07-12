@@ -2,11 +2,12 @@
   "name": "guerreros-back",
   "version": "1.0.0",
   "description": "api",
-  "main": "server.js",
+  "main": "./src/server.js",
   "type": "module",
   "scripts": {
     "start": "node ./src/server.js",
     "dev": "nodemon ./src/server.js",
+    "build": "node build.js",
     "lint:fix": "eslint --fix ."
   },
   "author": "",
