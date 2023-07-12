@@ -1,7 +1,7 @@
 import express from 'express';
+import bcrypt from 'bcrypt';
 import User from '../entities/user.entity.js';
 import Post from '../../posts/entities/post.entity.js';
-import bcrypt from 'bcrypt';
 import cloudinary from '../../shared/utils/cloudinary.js';
 import upload from '../../shared/utils/multer.js';
 
