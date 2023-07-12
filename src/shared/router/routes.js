@@ -1,5 +1,4 @@
 import express from 'express'
-
 import authRoute from '../../auth/router/auth.routes.js'
 import userRoute from '../../users/router/user.routes.js'
 import postRoute from '../../posts/router/post.routes.js'
