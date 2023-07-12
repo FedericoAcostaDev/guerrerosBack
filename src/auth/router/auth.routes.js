@@ -6,7 +6,7 @@ const router = express.Router()
 // REGISTER
 router.post('/register', async (req, res) => {
   try {
-    const salt = await bcrypt.genSalt(10);
+    const salt = await bcrypt.genSalt(10)
     const hashedPass = await bcrypt.hash(req.body.password, salt)
     const newUser = new User({
       username: req.body.username,
@@ -26,7 +26,6 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({ username: req.body.username })
-
     if (!user) {
       return res.status(400).json('Wrong credentials!')
     }
