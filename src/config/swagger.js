@@ -23,7 +23,7 @@ export const swaggerOptions = {
     },
     servers: [
       {
-        url: 'http://localhost:{port}/{basePath}/{versionApi}',
+        url: 'https://localhost:{port}/{basePath}/{versionApi}',
         description: 'The server api environment development',
         variables: {
           port: {
