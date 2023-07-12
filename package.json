@@ -7,8 +7,7 @@
   "scripts": {
     "start": "node ./src/server.js",
     "dev": "nodemon ./src/server.js",
-    "lint:fix": "eslint --fix .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint:fix": "eslint --fix ."
   },
   "author": "",
   "license": "MIT",
