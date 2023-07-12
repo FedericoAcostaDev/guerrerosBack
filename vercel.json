@@ -1,8 +1,14 @@
 {
-  "rewrites": [
+  "builds": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api"
+      "src": "./server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routers": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api"
     }
   ]
 }
