@@ -3,13 +3,19 @@ import Post from '../../posts/entities/post.entity.js'
 import bcrypt from 'bcrypt'
 import cloudinary from '../../shared/utils/cloudinary.js'
 import userService from '../services/user.service.js'
+import { handleSuccessResponse } from '../../shared/helpers/responseHandler.js'
+import { HTTP_STATUSES } from '../../shared/constants/index.js'
 
 const getUser = async (req, res, next) => {
   try {
     const { id: userId } = req.params
 
     const user = await userService.getUser(userId)
-    res.status(200).json(user)
+    handleSuccessResponse({
+      res,
+      status: HTTP_STATUSES.OK,
+      data: user
+    })
   } catch (err) {
     next(err)
   }
