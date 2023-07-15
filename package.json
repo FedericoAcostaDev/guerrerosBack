@@ -1,37 +1,37 @@
 {
-  "dependencies": {
-    "bcrypt": "^5.0.1",
-    "cloudinary": "^1.27.1",
-    "cors": "^2.8.5",
-    "dotenv": "^9.0.2",
-    "express": "^4.17.1",
-    "fs": "^0.0.1-security",
-    "mongoose": "^5.12.9",
-    "multer": "^1.4.2",
-    "nodemon": "^2.0.7",
-    "path": "^0.12.7"
-  },
-  "name": "api",
+  "name": "guerreros-back",
   "version": "1.0.0",
-  "main": "app.js",
+  "description": "api",
+  "main": "./src/server.js",
   "type": "module",
-  "engines": {
-    "node": "^16.11.1",
-    "npm": "^8.1.0"
+  "scripts": {
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js",
+    "build": "node build.config.cjs",
+    "lint:fix": "eslint --fix ."
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cloudinary": "^1.37.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "mongoose": "^7.3.3",
+    "morgan": "^1.10.0",
+    "multer": "1.4.5-lts.1",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "eslint": "^8.44.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-n": "^16.0.1",
-    "eslint-plugin-promise": "^6.1.1"
-  },
-  "scripts": {
-    "start": "node ./src/app.js",
-    "start:dev": "nodemon ./src/app.js",
-    "lint:fix": "eslint --fix ."
-  },
-  "author": "",
-  "license": "ISC",
-  "description": ""
+    "eslint-plugin-promise": "^6.1.1",
+    "nodemon": "^3.0.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
+  }
 }

@@ -1,5 +1,5 @@
 import express from 'express'
-import Category from './entities/category.entity.js'
+import Category from '../entities/category.entity.js'
 const router = express.Router()
 
 router.post('/', async (req, res) => {

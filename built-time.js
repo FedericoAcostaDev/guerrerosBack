@@ -1,0 +1,1 @@
+module.exports = 'Thu Jul 13 2023 21:23:18 GMT-0500 (hora de Ecuador)'

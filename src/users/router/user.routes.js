@@ -1,9 +1,9 @@
 import express from 'express'
-import User from './entities/user.entity.js'
-import Post from '../posts/entities/post.entity.js'
 import bcrypt from 'bcrypt'
-import cloudinary from '../shared/utils/cloudinary.js'
-import upload from '../shared/utils/multer.js'
+import User from '../entities/user.entity.js'
+import Post from '../../posts/entities/post.entity.js'
+import cloudinary from '../../shared/utils/cloudinary.js'
+import upload from '../../shared/utils/multer.js'
 
 const router = express.Router()
 
@@ -16,7 +16,7 @@ router.put('/:id', upload.single('image'), async (req, res) => {
     }
     try {
       // delete image from cloudinary
-      await cloudinary.uploader.destroy(user.cloudinary_id)
+      await cloudinary.uploader.destroy(User.cloudinary_id)
       // upload image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path)
       const updatedUser = await User.findByIdAndUpdate(

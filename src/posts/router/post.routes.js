@@ -1,7 +1,7 @@
 import { Router } from 'express'
-import Post from './entities/post.entity.js'
-import cloudinary from '../shared/utils/cloudinary.js'
-import upload from '../shared/utils/multer.js'
+import Post from '../entities/post.entity.js'
+import cloudinary from '../../shared/utils/cloudinary.js'
+import upload from '../../shared/utils/multer.js'
 
 const router = Router()
 

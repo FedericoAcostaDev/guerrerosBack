@@ -1,5 +1,5 @@
 import express from 'express'
-import User from './entities/user.entity.js'
+import User from '../../users/entities/user.entity.js'
 import bcrypt from 'bcrypt'
 const router = express.Router()
 
@@ -26,7 +26,6 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({ username: req.body.username })
-
     if (!user) {
       return res.status(400).json('Wrong credentials!')
     }
