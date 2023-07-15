@@ -14,11 +14,7 @@
       },
       "router": [
         {
-          "src": "/api/(.*)",
-          "dest": "/api"
-        },
-        {
-          "src": "/api-docs",
+          "src": "/",
           "dest": "/api-docs"
         }
       ]
