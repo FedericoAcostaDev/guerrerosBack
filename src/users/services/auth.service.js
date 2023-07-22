@@ -32,8 +32,9 @@ const loginUser = async (credentials) => {
 
   const { password: _, ...userWithoutSensitiveData } = user._doc
 
-  const { _id } = userWithoutSensitiveData
-  const token = await generateToken({ _id })
+  const { _id, role } = userWithoutSensitiveData
+  const token = await generateToken({ _id, role })
+
   return { user: userWithoutSensitiveData, token }
 }
 
