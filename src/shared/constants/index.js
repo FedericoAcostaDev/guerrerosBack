@@ -1,4 +1,4 @@
-export const HTTP_STATUSES = {
+export const HTTP_STATUSES = Object.freeze({
   OK: 200,
   CREATED: 201,
   ACCEPTED: 202,
@@ -8,9 +8,9 @@ export const HTTP_STATUSES = {
   NOT_FOUND: 404,
   INTERNAL_SERVER_ERROR: 500,
   SERVICE_UNAVAILABLE: 503
-}
+})
 
-export const HTTP_MESSAGES = {
+export const HTTP_MESSAGES = Object.freeze({
   [HTTP_STATUSES.OK]: 'OK',
   [HTTP_STATUSES.CREATED]: 'CREATED',
   [HTTP_STATUSES.ACCEPTED]: 'ACCEPTED',
@@ -22,4 +22,4 @@ export const HTTP_MESSAGES = {
   [HTTP_STATUSES.MISSING_PARAMETERS]: 'Missing parameters',
   [HTTP_STATUSES.INVALID_INPUT]: 'Invalid input',
   [HTTP_STATUSES.SERVICE_UNAVAILABLE]: 'Servuce unavailable'
-}
+})

@@ -1,6 +1,7 @@
 import { Err } from '../../shared/helpers/error.js'
 import User from '../entities/user.entity.js'
 import { verify, encrypt } from '../utils/bcrypt.js'
+import { generateToken } from '../utils/jwt.js'
 
 const registerUser = async (userData) => {
   const { username, email, password, public_id: cloudinaryID } = userData
@@ -31,7 +32,10 @@ const loginUser = async (credentials) => {
 
   const { password: _, ...userWithoutSensitiveData } = user._doc
 
-  return userWithoutSensitiveData
+  const { _id, role } = userWithoutSensitiveData
+  const token = await generateToken({ _id, role })
+
+  return { user: userWithoutSensitiveData, token }
 }
 
 export default {
