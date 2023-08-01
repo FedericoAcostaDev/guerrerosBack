@@ -5,7 +5,7 @@ import upload from '../shared/utils/multer.js'
 const router = Router()
 
 router.route('/upload')
-  .get(upload.single('avatar'), userCtrl.uploadImage)
+  .post(upload.single('avatar'), userCtrl.uploadImage)
 
 router.route('/:id')
   .get(userCtrl.getUser)

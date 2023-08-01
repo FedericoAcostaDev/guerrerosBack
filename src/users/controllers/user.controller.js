@@ -70,9 +70,9 @@ const deleteUser = async (req, res) => {
 }
 
 const uploadImage = async (req, res) => {
-  console.log('/users/upload triggered')
+  console.log(req.body)
   try {
-    const result = await cloudinary.uploader.upload(req.file.path)
+    const result = await cloudinary.uploader.upload(req.body.avatar)
     User.findById(req.body.id, (err, user) => {
       if (err) console.log(err)
       user.profilePic = result.secure_url
