@@ -16,7 +16,6 @@
   "main": "app.js",
   "type": "module",
   "engines": {
-    "node": "^16.11.1",
     "npm": "^8.1.0"
   },
   "devDependencies": {
